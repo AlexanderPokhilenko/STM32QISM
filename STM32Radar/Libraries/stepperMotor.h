@@ -5,6 +5,11 @@
 #include <stm32f10x_gpio.h>
 #include "delay.h"
 
+#define STEPPER_PORT				GPIOA
+#define STEPPER_STEP_PIN		GPIO_Pin_2
+#define STEPPER_DIR_PIN			GPIO_Pin_3
+#define STEPPER_ENABLE_PIN	GPIO_Pin_4
+
 typedef enum
 {
 	Clockwise,

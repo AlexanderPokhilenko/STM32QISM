@@ -6,15 +6,14 @@ void InitializeEncoder(void)
 	
 	GPIO_InitTypeDef GPIO_InitStructure;
 	
-	//A1 - encoder
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
+	GPIO_InitStructure.GPIO_Pin = ENCODER_PIN; 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	GPIO_Init(ENCODER_PORT, &GPIO_InitStructure);
 }
 
 uint8_t ReadEncoder(void)
 {
-	return GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1) == 0;
+	return GPIO_ReadInputDataBit(ENCODER_PORT, ENCODER_PIN) == 0;
 }
