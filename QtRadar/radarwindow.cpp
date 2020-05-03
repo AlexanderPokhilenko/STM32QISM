@@ -75,10 +75,14 @@ void RadarWindow::render(QPainter *p)
 
     QConicalGradient conicalGrad(0, 0, 0);
     conicalGrad.setColorAt(0, Qt::green);
-    conicalGrad.setColorAt(0.005, QColor(0, 255, 0, 100));
-    conicalGrad.setColorAt(0.125, Qt::transparent);
+    conicalGrad.setColorAt(0.001, QColor(0, 255, 0, 100));
+    conicalGrad.setColorAt(7.5 / 360, Qt::transparent);
+    conicalGrad.setColorAt(1.0 - 7.5 / 360, Qt::transparent);
+    conicalGrad.setColorAt(1.0 - 0.001, QColor(0, 255, 0, 100));
+    conicalGrad.setColorAt(1, Qt::green);
     p->setBrush(QBrush(conicalGrad));
-    p->drawPie(-100, -100, 200, 200, 0, 1000);
+    //p->setPen(QPen(Qt::green, 0.1));
+    p->drawPie(-100, -100, 200, 200, -120, 120*2); //full circle = 360 * 16; [-120; 120] = 15 deg
     p->restore();
 
     p->setPen(QPen(Qt::green, 1));
