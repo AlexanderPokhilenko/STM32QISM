@@ -42,10 +42,10 @@ void UART_SendArray(char data[], size_t count)
 	}
 }
 
-void UART_SendSingle(uint16_t val)
+void UART_SendSingle(uint16_t data)
 {
 	char buff[10]={0,0,0,0,0,0,0,0,0,0};
-	sprintf(buff,"%d\r\n",val);
+	sprintf(buff,"%d\r\n",data);
 	int i=0;
 	while(buff[i]!=0 && i<10)
 	{
@@ -53,6 +53,22 @@ void UART_SendSingle(uint16_t val)
 		delay_ms(2);
 		i++;
 	}
+}
+
+void UART_SendSingleAsBytes(uint16_t data)
+{
+	uint8_t lsb = data & 0xff;
+	uint8_t msb = data >> 8;
+	
+	USART_SendData(USART1, lsb);
+	delay_ms(2);
+	USART_SendData(USART1, msb);
+	/*
+	delay_ms(2);
+	USART_SendData(USART1, '\r');
+	delay_ms(2);
+	USART_SendData(USART1, '\n');
+	*/
 }
 
 void USART1_IRQHandler()

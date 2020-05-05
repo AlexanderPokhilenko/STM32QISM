@@ -18,7 +18,7 @@ int main(void)
 	{
 		StepperMotorMakeStep(2);
 	}
-	
+	/*
 	uint16_t maxSteps = 0;
 	do
 	{
@@ -26,12 +26,12 @@ int main(void)
 		maxSteps++;
 	} while(!ReadEncoder() || maxSteps < 4);
 	
-	UART_SendSingle(maxSteps);
-	
+	UART_SendSingleAsBytes(maxSteps);
+	*/
 	while(1)
 	{
 		uint16_t dist = HCSR04GetDistance();
-		UART_SendSingle(dist);
+		UART_SendSingleAsBytes(dist);
 		StepperMotorMakeStep(2);
 	}
 }

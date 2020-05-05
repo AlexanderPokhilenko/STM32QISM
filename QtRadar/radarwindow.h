@@ -25,7 +25,7 @@ private slots:
     void handleError(QSerialPort::SerialPortError error);
 
 private:
-    void addDot(int dist);
+    void addDot(ushort dist);
     QSerialPort *m_serialPort;
     QByteArray m_readData;
     QTimer m_timer;

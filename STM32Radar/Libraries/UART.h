@@ -10,6 +10,7 @@
 
 void InitializeUART(void);
 void UART_SendSingle(uint16_t data);
+void UART_SendSingleAsBytes(uint16_t data);
 void UART_SendArray(char data[], size_t count);
 extern void UART_HandleReceived(uint16_t data);
 #endif
