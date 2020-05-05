@@ -2,36 +2,96 @@
 #include <ctime>
 #include <QWidget>
 #include <math.h>
+#include <iostream>
 
-const int fps = 100.0;
+const int fps = 20;
 
-RadarWindow::RadarWindow(const std::string filepath) : reader(filepath), period(10), maxRadius(150000), deltaScale(0.01)
+RadarWindow::RadarWindow(QSerialPort *serialPort) : m_serialPort(serialPort), scale(1.0), steps(0), maxRadius(4000), maxSteps(200), deltaAngle(360.0 / maxSteps), deltaScale(0.01)
 {
     setTitle("Radar");
     resize(500, 500);
 
+    connect(m_serialPort, &QSerialPort::readyRead, this, &RadarWindow::handleReadyRead);
+    connect(m_serialPort, &QSerialPort::errorOccurred, this, &RadarWindow::handleError);
+    connect(&m_timer, &QTimer::timeout, this, &RadarWindow::handleTimeout);
+
+    m_timer.start(1000 / fps);
+
     startTime = std::chrono::high_resolution_clock::now();
     prevFrameTime = startTime;
-    scale = 1.0;
-    m_timerId = myStartTimer();
 }
 
 
-int RadarWindow::myStartTimer(){
-    return startTimer(1000 / fps);
-}
-void RadarWindow::timerEvent(QTimerEvent *event)
+void RadarWindow::handleReadyRead()
 {
-    if (event->timerId() == m_timerId)
+    m_readData.append(m_serialPort->readAll());
+
+    if (!m_timer.isActive()) m_timer.start(1000 / fps);
+}
+
+void RadarWindow::handleTimeout()
+{
+    if (m_readData.isEmpty())
     {
-        renderLater();
+        QTextStream(stdout) << QObject::tr("No data was currently available for reading from port %1") .arg(m_serialPort->portName()) << endl;
     }
+    else
+    {
+        QTextStream(stdout) << QObject::tr("Data successfully received from port %1") .arg(m_serialPort->portName()) << endl;
+        //QTextStream(stdout) << m_readData << endl;
+
+        const std::string str = m_readData.toStdString();
+
+        std::size_t current, previous = 0;
+        current = str.find('\n');
+        while (current != std::string::npos)
+        {
+            std::string sub = str.substr(previous, current - previous);
+            std::cout << sub << std::endl;
+            int dist = std::stoi(sub);
+            addDot(dist);
+
+            previous = current + 1;
+            current = str.find('\n', previous);
+        }
+
+        int dist = std::stoi(str.substr(previous, current - previous));
+        addDot(dist);
+
+        m_readData.clear();
+    }
+
+    renderLater();
 }
 
-double RadarWindow::getCurrentAngle(long long time)
+void RadarWindow::addDot(int dist)
 {
-    int period =10;
-    return ((time %(period*1000)) / period) * M_PI * 2/1000;
+    double angle = deltaAngle * steps;
+
+    qreal x = sin(angle) * 100.0 * dist / maxRadius;
+    qreal y = cos(angle) * 100.0 * dist / maxRadius;
+
+    DotInfo info;
+
+    info.x = x;
+    info.y = -y;
+
+    dots.push_back(info);
+
+    steps++;
+    if(steps >= maxSteps) steps = 0;
+}
+
+void RadarWindow::handleError(QSerialPort::SerialPortError serialPortError)
+{
+    if (serialPortError == QSerialPort::ReadError) {
+        QTextStream(stdout) << QObject::tr("An I/O error occurred while reading "
+                                        "the data from port %1, error: %2")
+                            .arg(m_serialPort->portName())
+                            .arg(m_serialPort->errorString())
+                         << endl;
+        QCoreApplication::exit(1);
+    }
 }
 
 void RadarWindow::render(QPainter *p)
@@ -61,14 +121,11 @@ void RadarWindow::render(QPainter *p)
 
     //Вычисление времени
     auto now = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(now-startTime).count();
     long long renderDelta = std::chrono::duration_cast<std::chrono::milliseconds>(now-prevFrameTime).count();
     prevFrameTime = now;
 
-    double sec = duration/1000000000.0;
     //от 0 до 1
-    double percents = sec/period;
-    double angle = 360*percents;
+    double angle = deltaAngle * steps;
     p->save();
     p->rotate(-90);
     p->rotate(angle);
@@ -94,8 +151,6 @@ void RadarWindow::render(QPainter *p)
 
     p->scale(scale, scale);
 
-    QMap<int, DotInfo> lastDots;
-
     for(DotInfo &dot : dots)
     {
         if(abs(dot.x) * scale <= 100 && abs(dot.y) * scale <= 100)
@@ -104,7 +159,6 @@ void RadarWindow::render(QPainter *p)
             auto color = QColor(0, 255, 0, transparency);
             p->setPen(QPen(color, 1));
             p->drawPoint(QPointF(dot.x, dot.y));
-            lastDots[dot.index] = dot;
         }
         dot.timeToFade -= renderDelta;
         if(dot.timeToFade <= 0)
@@ -112,23 +166,7 @@ void RadarWindow::render(QPainter *p)
             dots.pop_front();
         }
     }
-
-    p->save();
-    font.setPointSize(2);
-    p->setFont(font);
-    QMapIterator<int, DotInfo> i(lastDots);
-    while (i.hasNext())
-    {
-        i.next();
-        auto currentDot = i.value();
-        p->drawText(QPointF(currentDot.x, currentDot.y), " id:" + QString::number(currentDot.index).rightJustified(3, '0'));
-        if(neededTables.contains(currentDot.index)){
-            p->drawText(QPointF(currentDot.x, currentDot.y + 3), " v:" + QString::number(currentDot.velocity));
-            p->drawText(QPointF(currentDot.x, currentDot.y + 6), " h:" + QString::number(currentDot.height));
-        }
-    }
-    p->restore();
-
+/*
     if(reader.HasValue())
     {
         PlaneInfo* planeInfo = reader.GetCurrent();
@@ -149,9 +187,6 @@ void RadarWindow::render(QPainter *p)
                 DotInfo info;
                 info.x = x;
                 info.y = -y;
-                info.height = planeInfo->height;
-                info.velocity = planeInfo->velocity;
-                info.index = planeInfo->index;
                 info.timeToFade += deltaT;
 
                 dots.push_back(info);
@@ -170,52 +205,10 @@ void RadarWindow::render(QPainter *p)
     }
     else
     {
-        qInfo() << "Отсутствует текущее значение. Возможно, закончился файл.";
+        qInfo() << "Отсутствует текущее значение.";
     }
-
+*/
     p->end();
-}
-
-void RadarWindow::mousePressEvent(QMouseEvent *ev)
-{
-    double x = ev->x();
-    double y = ev->y();
-    double delta = width() - height();
-    double halfScreen = 0;
-
-    if(delta > 0){
-        x -= delta / 2;
-        halfScreen = height() / 2;
-    }
-    else
-    {
-        y += delta / 2;
-        halfScreen = width() / 2;
-    }
-
-    x -= halfScreen;
-    y -= halfScreen;
-
-    x = 100 * x / halfScreen / scale;
-    y = 100 * y / halfScreen / scale;
-
-    //qInfo() << x << " " << y;
-
-    for(DotInfo &dot : dots)
-    {
-        if(abs(dot.x - x) <= 1 && abs(dot.y - y) <= 1){
-            //qInfo() << "Current dot index: " << dot.index;
-            if(neededTables.contains(dot.index)){
-                neededTables.remove(dot.index);
-            }
-            else
-            {
-                neededTables.insert(dot.index);
-            }
-            //foreach (auto &value, neededTables) qInfo() << value;
-            break;
-        }
-    }
 }
 
 void RadarWindow::wheelEvent(QWheelEvent *ev)

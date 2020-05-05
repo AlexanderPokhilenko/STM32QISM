@@ -9,9 +9,6 @@ public:
     ~DotInfo();
     double x;
     double y;
-    double height;
-    double velocity;
-    int index;
     int fadingTime;
     int timeToFade;
 };

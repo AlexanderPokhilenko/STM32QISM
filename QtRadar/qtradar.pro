@@ -1,19 +1,16 @@
 SOURCES += \
     dotinfo.cpp \
     main.cpp \
-    planeinfo.cpp \
     radarwindow.cpp \
-    rasterwindow.cpp \
-    readeriterator.cpp
+    rasterwindow.cpp
 
 HEADERS += \
     dotinfo.h \
-    planeinfo.h \
     radarwindow.h \
-    rasterwindow.h \
-    readeriterator.h
+    rasterwindow.h
 
-QT += widgets
+QT += widgets \
+      serialport
 
 FORMS += \
     mainwindow.ui

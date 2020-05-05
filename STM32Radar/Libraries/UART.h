@@ -8,7 +8,8 @@
 
 #define BAUDRATE 9600
 
-void UART_init(void);
-void UART_send(char data[],unsigned char count);
-void UART_dec(unsigned int val);
+void InitializeUART(void);
+void UART_SendSingle(uint16_t data);
+void UART_SendArray(char data[], size_t count);
+extern void UART_HandleReceived(uint16_t data);
 #endif

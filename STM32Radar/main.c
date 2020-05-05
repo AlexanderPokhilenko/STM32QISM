@@ -7,7 +7,7 @@
 int main(void)
 {
 	InitHCSR04();
-	UART_init();
+	InitializeUART();
 	InitializeStepperMotor();
 	InitializeEncoder();
 	
@@ -17,13 +17,26 @@ int main(void)
 	while(!ReadEncoder())
 	{
 		StepperMotorMakeStep(2);
-		delay_ms(2);
 	}
+	
+	uint16_t maxSteps = 0;
+	do
+	{
+		StepperMotorMakeStep(2);
+		maxSteps++;
+	} while(!ReadEncoder() || maxSteps < 4);
+	
+	UART_SendSingle(maxSteps);
 	
 	while(1)
 	{
-		int32_t dist = HCSR04GetDistance();
-		UART_dec(dist);
+		uint16_t dist = HCSR04GetDistance();
+		UART_SendSingle(dist);
 		StepperMotorMakeStep(2);
 	}
+}
+
+void UART_HandleReceived(uint16_t data)
+{
+	//TODO: FSM
 }

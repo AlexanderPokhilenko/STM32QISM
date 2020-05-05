@@ -21,8 +21,8 @@ void EnableHCSR04PeriphClock(void);
 void InitHCSR04(void);
 
 /**
- * Measure distance and get value in mm. Lower than 0 means no echo signal: distance more than ~3m.
+ * Measure distance and get value in mm.
  */
-int32_t HCSR04GetDistance(void);
+uint16_t HCSR04GetDistance(void);
 
 #endif /* HC_SR04_H */

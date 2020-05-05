@@ -68,7 +68,7 @@ void InitHCSR04(void)
 	initMeasureTimer();
 }
 
-int32_t HCSR04GetDistance(void)
+uint16_t HCSR04GetDistance(void)
 {
 	TIM_SetCounter(US_TIMER, 0); 
 	TIM_Cmd(US_TIMER, ENABLE);
