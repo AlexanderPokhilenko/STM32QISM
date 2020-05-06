@@ -18,6 +18,7 @@ protected:
     //Отрисовка всей сцены
     void render(QPainter *p) override;
     void wheelEvent(QWheelEvent *ev) override;
+    void keyPressEvent(QKeyEvent *event) override;
 
 private slots:
     void handleReadyRead();

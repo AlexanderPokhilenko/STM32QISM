@@ -8,7 +8,8 @@ int main(int argc, char **argv)
     if(argc > 1){
         serialPortName = QString(argv[1]);
     }
-    else {
+    else
+    {
         serialPortName = QString("COM5");
     }
 
@@ -17,7 +18,8 @@ int main(int argc, char **argv)
 
     serialPort.setBaudRate(QSerialPort::Baud9600);
 
-    if (!serialPort.open(QIODevice::ReadOnly)) {
+    if (!serialPort.open(QIODevice::ReadWrite))
+    {
         QTextStream(stdout) << QObject::tr("Failed to open port %1, error: %2")
                           .arg(serialPortName)
                           .arg(serialPort.errorString())

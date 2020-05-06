@@ -2,7 +2,7 @@
 #include "delay.h"
 // from https://github.com/lukdut/HC-SR04-Stm32
 
-void EnableHCSR04PeriphClock(void)
+static void enableHCSR04PeriphClock(void)
 {
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
@@ -61,14 +61,14 @@ static void initPins(void)
 	GPIO_Init(US_ECHO_PORT, &GPIO_InitStructure);
 }
 
-void InitHCSR04(void)
+void InitializeHCSR04(void)
 {
-	EnableHCSR04PeriphClock();
+	enableHCSR04PeriphClock();
 	initPins();
 	initMeasureTimer();
 }
 
-uint16_t HCSR04GetDistance(void)
+uint16_t HCSR04_GetDistance(void)
 {
 	TIM_SetCounter(US_TIMER, 0); 
 	TIM_Cmd(US_TIMER, ENABLE);

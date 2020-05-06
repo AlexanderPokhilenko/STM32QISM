@@ -12,17 +12,14 @@
 #define US_ECHO_PIN						GPIO_Pin_6		//TIM Ch1 (echo input)
 #define US_TIMER_TRIG_SOURCE	TIM_TS_TI1FP1
 
-
-void EnableHCSR04PeriphClock(void);
-
 /**
  * Initialization of HCSR04's peripherals
  */
-void InitHCSR04(void);
+void InitializeHCSR04(void);
 
 /**
  * Measure distance and get value in mm.
  */
-uint16_t HCSR04GetDistance(void);
+uint16_t HCSR04_GetDistance(void);
 
 #endif /* HC_SR04_H */

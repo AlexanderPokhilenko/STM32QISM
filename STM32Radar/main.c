@@ -1,42 +1,23 @@
-#include "hcsr04.h"
+#include "RURS.h"
 #include "UART.h"
-#include "delay.h"
-#include "stepperMotor.h"
-#include "encoder.h"
+#include "FSM.h"
 
 int main(void)
 {
-	InitHCSR04();
 	InitializeUART();
-	InitializeStepperMotor();
-	InitializeEncoder();
+	InitializeRURS();
 	
-	TurnOnStepperMotor();
-	StepperMotorSetDirection(Clockwise);
+	RURS_TurnOn();
 	
-	while(!ReadEncoder())
-	{
-		StepperMotorMakeStep(2);
-	}
-	/*
-	uint16_t maxSteps = 0;
-	do
-	{
-		StepperMotorMakeStep(2);
-		maxSteps++;
-	} while(!ReadEncoder() || maxSteps < 4);
+	RURS_ResetPosition();
 	
-	UART_SendSingleAsBytes(maxSteps);
-	*/
 	while(1)
 	{
-		uint16_t dist = HCSR04GetDistance();
-		UART_SendSingleAsBytes(dist);
-		StepperMotorMakeStep(2);
+		FSM_HandleCurrent();
 	}
 }
 
 void UART_HandleReceived(uint16_t data)
 {
-	//TODO: FSM
+	FSM_MakeTransition((InputSignal)data);
 }

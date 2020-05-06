@@ -1,5 +1,5 @@
 .\objects\main.o: main.c
-.\objects\main.o: .\Libraries\hcsr04.h
+.\objects\main.o: .\Libraries\RURS.h
 .\objects\main.o: C:\Keil\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h
 .\objects\main.o: .\RTE\_Target_1\RTE_Components.h
 .\objects\main.o: C:\Keil\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h
@@ -17,6 +17,4 @@
 .\objects\main.o: C:\Keil\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc\misc.h
 .\objects\main.o: .\Libraries\UART.h
 .\objects\main.o: C:\Keil\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\main.o: .\Libraries\delay.h
-.\objects\main.o: .\Libraries\stepperMotor.h
-.\objects\main.o: .\Libraries\encoder.h
+.\objects\main.o: .\Libraries\FSM.h

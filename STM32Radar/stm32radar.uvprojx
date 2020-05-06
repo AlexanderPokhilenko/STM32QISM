@@ -506,6 +506,26 @@
               <FileType>5</FileType>
               <FilePath>.\Libraries\encoder.h</FilePath>
             </File>
+            <File>
+              <FileName>FSM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Libraries\FSM.c</FilePath>
+            </File>
+            <File>
+              <FileName>FSM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Libraries\FSM.h</FilePath>
+            </File>
+            <File>
+              <FileName>RURS.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Libraries\RURS.c</FilePath>
+            </File>
+            <File>
+              <FileName>RURS.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Libraries\RURS.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
