@@ -8,6 +8,7 @@
 void InitializeRURS(void);
 void RURS_TurnOn(void);
 void RURS_ResetPosition(void);
+void RURS_MakeHalfTurn(void);
 uint16_t RURS_TakeNextMeasurement(void);
 uint16_t RURS_GetCurrentSteps(void);
 #endif

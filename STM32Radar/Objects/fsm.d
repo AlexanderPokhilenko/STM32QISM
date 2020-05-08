@@ -18,5 +18,6 @@
 .\objects\fsm.o: C:\Keil\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc\misc.h
 .\objects\fsm.o: Libraries\UART.h
 .\objects\fsm.o: C:\Keil\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\fsm.o: Libraries\HCSR04.h
 .\objects\fsm.o: Libraries\motorsL298N.h
 .\objects\fsm.o: Libraries\delay.h

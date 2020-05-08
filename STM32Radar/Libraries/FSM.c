@@ -1,14 +1,17 @@
 #include "FSM.h"
 #include "RURS.h"
 #include "UART.h"
+#include "HCSR04.h"
 #include "motorsL298N.h"
 #include "delay.h"
 
-void MoveForward(void) { Motors_TurnOn(); Motors_MoveForward(); }
-void MoveBackward(void) { Motors_TurnOn(); Motors_MoveBackward(); }
+#define MIN_DIST 150 //mm
+
+void MoveForward(void) { RURS_ResetPosition(); Motors_TurnOn(); Motors_MoveForward(); if(HCSR04_GetDistance() < MIN_DIST)FSM_MakeTransition(closeDistance); }
+void MoveBackward(void) { RURS_MakeHalfTurn(); Motors_TurnOn(); Motors_MoveBackward(); if(HCSR04_GetDistance() < MIN_DIST)FSM_MakeTransition(closeDistance); }
 void RotateClockwise(void) { Motors_TurnOn(); Motors_RotateClockwise(); }
 void RotateCounterclockwise(void) { Motors_TurnOn(); Motors_RotateCounterclockwise(); }
-void Wait(void) {  Motors_TurnOff(); delay_ms(2); }
+void Wait(void) { Motors_TurnOff(); RURS_ResetPosition(); }
 void Scan(void)
 {
 	uint16_t dist = RURS_TakeNextMeasurement();

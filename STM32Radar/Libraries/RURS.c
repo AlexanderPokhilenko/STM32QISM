@@ -28,6 +28,14 @@ void RURS_ResetPosition(void)
 	steps = 0;
 }
 
+void RURS_MakeHalfTurn(void)
+{
+	for(; steps < MAX_STEPS / 2; steps++)
+	{
+		StepperMotorMakeStep(2);
+	}
+}
+
 uint16_t RURS_TakeNextMeasurement(void)
 {
 	uint16_t dist = HCSR04_GetDistance();
