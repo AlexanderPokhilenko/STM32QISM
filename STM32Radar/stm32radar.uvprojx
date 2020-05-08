@@ -467,16 +467,6 @@
               <FilePath>.\Libraries\delay.h</FilePath>
             </File>
             <File>
-              <FileName>hcsr04.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Libraries\hcsr04.c</FilePath>
-            </File>
-            <File>
-              <FileName>hcsr04.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Libraries\hcsr04.h</FilePath>
-            </File>
-            <File>
               <FileName>stepperMotor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Libraries\stepperMotor.c</FilePath>
@@ -525,6 +515,26 @@
               <FileName>RURS.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Libraries\RURS.h</FilePath>
+            </File>
+            <File>
+              <FileName>motorsL298N.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Libraries\motorsL298N.c</FilePath>
+            </File>
+            <File>
+              <FileName>motorsL298N.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Libraries\motorsL298N.h</FilePath>
+            </File>
+            <File>
+              <FileName>HCSR04.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Libraries\HCSR04.c</FilePath>
+            </File>
+            <File>
+              <FileName>HCSR04.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Libraries\HCSR04.h</FilePath>
             </File>
           </Files>
         </Group>

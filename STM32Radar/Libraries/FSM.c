@@ -1,13 +1,14 @@
 #include "FSM.h"
 #include "RURS.h"
 #include "UART.h"
+#include "motorsL298N.h"
 #include "delay.h"
 
-void MoveForward(void) { /*TODO*/ }
-void MoveBackward(void) { /*TODO*/ }
-void RotateClockwise(void) { /*TODO*/ }
-void RotateCounterclockwise(void) { /*TODO*/ }
-void Wait(void) { delay_ms(2); }
+void MoveForward(void) { Motors_TurnOn(); Motors_MoveForward(); }
+void MoveBackward(void) { Motors_TurnOn(); Motors_MoveBackward(); }
+void RotateClockwise(void) { Motors_TurnOn(); Motors_RotateClockwise(); }
+void RotateCounterclockwise(void) { Motors_TurnOn(); Motors_RotateCounterclockwise(); }
+void Wait(void) {  Motors_TurnOff(); delay_ms(2); }
 void Scan(void)
 {
 	uint16_t dist = RURS_TakeNextMeasurement();

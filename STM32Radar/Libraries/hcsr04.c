@@ -1,4 +1,4 @@
-#include "hcsr04.h"
+#include "HCSR04.h"
 #include "delay.h"
 // from https://github.com/lukdut/HC-SR04-Stm32
 

@@ -18,3 +18,4 @@
 .\objects\main.o: .\Libraries\UART.h
 .\objects\main.o: C:\Keil\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: .\Libraries\FSM.h
+.\objects\main.o: .\Libraries\motorsL298N.h

@@ -1,6 +1,6 @@
 #include "RURS.h"
 #include "stepperMotor.h"
-#include "hcsr04.h"
+#include "HCSR04.h"
 #include "encoder.h"
 
 uint16_t steps = 0;

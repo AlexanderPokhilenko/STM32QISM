@@ -1,5 +1,5 @@
-#ifndef HC_SR04_H
-#define HC_SR04_H
+#ifndef HCSR04_H
+#define HCSR04_H
 // from https://github.com/lukdut/HC-SR04-Stm32
 #include "stm32f10x.h"
 

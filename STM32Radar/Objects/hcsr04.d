@@ -1,5 +1,5 @@
-.\objects\hcsr04.o: Libraries\hcsr04.c
-.\objects\hcsr04.o: Libraries\hcsr04.h
+.\objects\hcsr04.o: Libraries\HCSR04.c
+.\objects\hcsr04.o: Libraries\HCSR04.h
 .\objects\hcsr04.o: C:\Keil\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h
 .\objects\hcsr04.o: .\RTE\_Target_1\RTE_Components.h
 .\objects\hcsr04.o: C:\Keil\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h

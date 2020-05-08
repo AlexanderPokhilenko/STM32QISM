@@ -14,13 +14,13 @@ typedef enum
 typedef enum
 {
 	forward				= 'W',
-	backward			= 'S',
 	left					= 'A',
+	backward			= 'S',
 	right					= 'D',
 	stop					= ' ',
 	observe				= 'O',
-	closeDistance	= 'C',
-	endScanning		= 'E'
+	closeDistance	= 'c',
+	endScanning		= 'e'
 } InputSignal;
 
 void FSM_MakeTransition(InputSignal signal);

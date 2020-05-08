@@ -26,11 +26,6 @@ void InitializeUART(void)
     USART_Cmd(USART1, ENABLE);
 		USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
     NVIC_EnableIRQ(USART1_IRQn);
-	
-		port.GPIO_Pin = GPIO_Pin_8;
-		port.GPIO_Mode = GPIO_Mode_Out_PP;
-		port.GPIO_Speed = GPIO_Speed_50MHz;
-		GPIO_Init(GPIOA, &port);
 }
 
 void UART_SendArray(char data[], size_t count)

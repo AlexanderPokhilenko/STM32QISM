@@ -17,5 +17,5 @@
 .\objects\rurs.o: C:\Keil\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc\misc.h
 .\objects\rurs.o: Libraries\stepperMotor.h
 .\objects\rurs.o: Libraries\delay.h
-.\objects\rurs.o: Libraries\hcsr04.h
+.\objects\rurs.o: Libraries\HCSR04.h
 .\objects\rurs.o: Libraries\encoder.h

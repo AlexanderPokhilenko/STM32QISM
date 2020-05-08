@@ -1,11 +1,13 @@
 #include "RURS.h"
 #include "UART.h"
 #include "FSM.h"
+#include "motorsL298N.h"
 
 int main(void)
 {
 	InitializeUART();
 	InitializeRURS();
+	InitializeMotors();
 	
 	RURS_TurnOn();
 	
