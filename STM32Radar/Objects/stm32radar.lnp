@@ -8,6 +8,7 @@
 ".\objects\rurs.o"
 ".\objects\motorsl298n.o"
 ".\objects\hcsr04.o"
+".\objects\implementationfsm.o"
 ".\objects\misc.o"
 ".\objects\stm32f10x_gpio.o"
 ".\objects\stm32f10x_rcc.o"

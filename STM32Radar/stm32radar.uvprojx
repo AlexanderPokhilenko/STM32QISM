@@ -536,6 +536,16 @@
               <FileType>5</FileType>
               <FilePath>.\Libraries\HCSR04.h</FilePath>
             </File>
+            <File>
+              <FileName>implementationFSM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Libraries\implementationFSM.c</FilePath>
+            </File>
+            <File>
+              <FileName>implementationFSM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Libraries\implementationFSM.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

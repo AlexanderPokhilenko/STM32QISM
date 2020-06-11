@@ -1,7 +1,8 @@
 #include "RURS.h"
 #include "UART.h"
-#include "FSM.h"
 #include "motorsL298N.h"
+#include "FSM.h"
+#include "implementationFSM.h"
 
 int main(void)
 {

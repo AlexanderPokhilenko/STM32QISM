@@ -1,27 +1,23 @@
 #ifndef FSM_H
 #define FSM_H
 
-typedef enum
-{
-	movingForward,
-	movingBackward,
-	rotatingClockwise,
-	rotatingCounterclockwise,
-	waiting,
-	scanning
-} MachineState;
+#define InputSignal char
 
-typedef enum
+typedef struct
 {
-	forward				= 'W',
-	left					= 'A',
-	backward			= 'S',
-	right					= 'D',
-	stop					= ' ',
-	observe				= 'O',
-	closeDistance	= 'c',
-	endScanning		= 'e'
-} InputSignal;
+	void (*const handle)(void);
+} StateInfo;
+
+typedef struct
+{
+	const StateInfo *const previous;
+	const InputSignal input;
+	const StateInfo *const next;
+} TransitionInfo;
+
+extern const StateInfo *currentStateInfo;
+extern const TransitionInfo transitions[];
+extern const int transitionsCount;
 
 void FSM_MakeTransition(InputSignal signal);
 

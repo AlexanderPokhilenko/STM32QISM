@@ -17,5 +17,6 @@
 .\objects\main.o: C:\Keil\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc\misc.h
 .\objects\main.o: .\Libraries\UART.h
 .\objects\main.o: C:\Keil\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\main.o: .\Libraries\FSM.h
 .\objects\main.o: .\Libraries\motorsL298N.h
+.\objects\main.o: .\Libraries\FSM.h
+.\objects\main.o: .\Libraries\implementationFSM.h
