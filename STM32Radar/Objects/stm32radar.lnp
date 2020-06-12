@@ -1,5 +1,4 @@
 --cpu Cortex-M3
-".\objects\main.o"
 ".\objects\delay.o"
 ".\objects\steppermotor.o"
 ".\objects\uart.o"
@@ -7,8 +6,9 @@
 ".\objects\rurs.o"
 ".\objects\motorsl298n.o"
 ".\objects\hcsr04.o"
-".\objects\dynamicfsm.o"
-".\objects\impldynamicfsm.o"
+".\objects\fsm.o"
+".\objects\implementationfsm.o"
+".\objects\main_1.o"
 ".\objects\misc.o"
 ".\objects\stm32f10x_gpio.o"
 ".\objects\stm32f10x_rcc.o"

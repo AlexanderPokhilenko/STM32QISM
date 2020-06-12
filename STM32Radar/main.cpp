@@ -1,7 +1,10 @@
+extern "C" {
 #include "RURS.h"
 #include "UART.h"
 #include "motorsL298N.h"
-#include "wrapperFSM.h"
+}
+#include "FSM.h"
+#include "implementationFSM.h"
 
 int main(void)
 {
@@ -15,11 +18,11 @@ int main(void)
 	
 	while(1)
 	{
-		FSM_HandleCurrent();
+		currentState->Handle();
 	}
 }
 
 void UART_HandleReceived(uint16_t data)
 {
-	FSM_MakeTransition((InputSignal)data);
+	currentState->MakeTransition((InputSignal)data);
 }

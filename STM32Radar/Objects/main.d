@@ -1,4 +1,4 @@
-.\objects\main.o: main.c
+.\objects\main.o: main.cpp
 .\objects\main.o: .\Libraries\RURS.h
 .\objects\main.o: C:\Keil\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h
 .\objects\main.o: .\RTE\_Target_1\RTE_Components.h
@@ -18,5 +18,5 @@
 .\objects\main.o: .\Libraries\UART.h
 .\objects\main.o: C:\Keil\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: .\Libraries\motorsL298N.h
-.\objects\main.o: .\Libraries\dynamicFSM.h
-.\objects\main.o: .\Libraries\implDynamicFSM.h
+.\objects\main.o: FSM.h
+.\objects\main.o: implementationFSM.h

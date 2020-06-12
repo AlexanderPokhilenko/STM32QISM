@@ -452,11 +452,6 @@
           </GroupOption>
           <Files>
             <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\main.c</FilePath>
-            </File>
-            <File>
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Libraries\delay.c</FilePath>
@@ -527,24 +522,29 @@
               <FilePath>.\Libraries\HCSR04.h</FilePath>
             </File>
             <File>
-              <FileName>dynamicFSM.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Libraries\dynamicFSM.c</FilePath>
+              <FileName>FSM.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\FSM.cpp</FilePath>
             </File>
             <File>
-              <FileName>dynamicFSM.h</FileName>
+              <FileName>FSM.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Libraries\dynamicFSM.h</FilePath>
+              <FilePath>.\FSM.h</FilePath>
             </File>
             <File>
-              <FileName>implDynamicFSM.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Libraries\implDynamicFSM.c</FilePath>
-            </File>
-            <File>
-              <FileName>implDynamicFSM.h</FileName>
+              <FileName>implementationFSM.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Libraries\implDynamicFSM.h</FilePath>
+              <FilePath>.\implementationFSM.h</FilePath>
+            </File>
+            <File>
+              <FileName>implementationFSM.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\implementationFSM.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>main.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\main.cpp</FilePath>
             </File>
           </Files>
         </Group>
