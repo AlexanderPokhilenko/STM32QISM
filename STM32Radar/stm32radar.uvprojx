@@ -497,16 +497,6 @@
               <FilePath>.\Libraries\encoder.h</FilePath>
             </File>
             <File>
-              <FileName>FSM.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Libraries\FSM.c</FilePath>
-            </File>
-            <File>
-              <FileName>FSM.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Libraries\FSM.h</FilePath>
-            </File>
-            <File>
               <FileName>RURS.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Libraries\RURS.c</FilePath>
@@ -537,14 +527,24 @@
               <FilePath>.\Libraries\HCSR04.h</FilePath>
             </File>
             <File>
-              <FileName>implementationFSM.c</FileName>
+              <FileName>dynamicFSM.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\implementationFSM.c</FilePath>
+              <FilePath>.\Libraries\dynamicFSM.c</FilePath>
             </File>
             <File>
-              <FileName>implementationFSM.h</FileName>
+              <FileName>dynamicFSM.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Libraries\implementationFSM.h</FilePath>
+              <FilePath>.\Libraries\dynamicFSM.h</FilePath>
+            </File>
+            <File>
+              <FileName>implDynamicFSM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Libraries\implDynamicFSM.c</FilePath>
+            </File>
+            <File>
+              <FileName>implDynamicFSM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Libraries\implDynamicFSM.h</FilePath>
             </File>
           </Files>
         </Group>
