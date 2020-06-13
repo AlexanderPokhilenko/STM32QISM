@@ -452,19 +452,19 @@
           </GroupOption>
           <Files>
             <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\main.c</FilePath>
+              <FileName>main.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\main.cpp</FilePath>
             </File>
             <File>
-              <FileName>dynamicFSM.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Libraries\dynamicFSM.c</FilePath>
+              <FileName>OOPFSM.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Libraries\OOPFSM.cpp</FilePath>
             </File>
             <File>
-              <FileName>dynamicFSM.h</FileName>
+              <FileName>OOPFSM.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Libraries\dynamicFSM.h</FilePath>
+              <FilePath>.\Libraries\OOPFSM.h</FilePath>
             </File>
           </Files>
         </Group>
