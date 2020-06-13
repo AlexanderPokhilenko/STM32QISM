@@ -452,99 +452,19 @@
           </GroupOption>
           <Files>
             <File>
-              <FileName>delay.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\delay.c</FilePath>
+              <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>delay.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Libraries\delay.h</FilePath>
-            </File>
-            <File>
-              <FileName>stepperMotor.c</FileName>
+              <FileName>FSM.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\stepperMotor.c</FilePath>
+              <FilePath>.\Libraries\FSM.c</FilePath>
             </File>
             <File>
-              <FileName>stepperMotor.h</FileName>
+              <FileName>FSM.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Libraries\stepperMotor.h</FilePath>
-            </File>
-            <File>
-              <FileName>UART.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Libraries\UART.c</FilePath>
-            </File>
-            <File>
-              <FileName>UART.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Libraries\UART.h</FilePath>
-            </File>
-            <File>
-              <FileName>encoder.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Libraries\encoder.c</FilePath>
-            </File>
-            <File>
-              <FileName>encoder.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Libraries\encoder.h</FilePath>
-            </File>
-            <File>
-              <FileName>RURS.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Libraries\RURS.c</FilePath>
-            </File>
-            <File>
-              <FileName>RURS.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Libraries\RURS.h</FilePath>
-            </File>
-            <File>
-              <FileName>motorsL298N.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Libraries\motorsL298N.c</FilePath>
-            </File>
-            <File>
-              <FileName>motorsL298N.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Libraries\motorsL298N.h</FilePath>
-            </File>
-            <File>
-              <FileName>HCSR04.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Libraries\HCSR04.c</FilePath>
-            </File>
-            <File>
-              <FileName>HCSR04.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Libraries\HCSR04.h</FilePath>
-            </File>
-            <File>
-              <FileName>main.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\main.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>implOOPFSM.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Libraries\implOOPFSM.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>implOOPFSM.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Libraries\implOOPFSM.h</FilePath>
-            </File>
-            <File>
-              <FileName>OOPFSM.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Libraries\OOPFSM.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>OOPFSM.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Libraries\OOPFSM.h</FilePath>
+              <FilePath>.\Libraries\FSM.h</FilePath>
             </File>
           </Files>
         </Group>

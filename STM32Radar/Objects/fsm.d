@@ -1,2 +1,2 @@
-.\objects\fsm.o: Libraries\OOPFSM\FSM.cpp
-.\objects\fsm.o: Libraries\OOPFSM\FSM.h
+.\objects\fsm.o: Libraries\FSM.c
+.\objects\fsm.o: Libraries\FSM.h
