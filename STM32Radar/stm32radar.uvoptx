@@ -226,8 +226,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\Libraries\FSM.c</PathWithFileName>
-      <FilenameWithoutPath>FSM.c</FilenameWithoutPath>
+      <PathWithFileName>.\Libraries\dynamicFSM.c</PathWithFileName>
+      <FilenameWithoutPath>dynamicFSM.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -238,8 +238,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\Libraries\FSM.h</PathWithFileName>
-      <FilenameWithoutPath>FSM.h</FilenameWithoutPath>
+      <PathWithFileName>.\Libraries\dynamicFSM.h</PathWithFileName>
+      <FilenameWithoutPath>dynamicFSM.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

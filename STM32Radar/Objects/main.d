@@ -1,2 +1,2 @@
 .\objects\main.o: main.c
-.\objects\main.o: .\Libraries\FSM.h
+.\objects\main.o: .\Libraries\dynamicFSM.h

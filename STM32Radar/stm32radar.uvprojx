@@ -457,14 +457,14 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>FSM.c</FileName>
+              <FileName>dynamicFSM.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\FSM.c</FilePath>
+              <FilePath>.\Libraries\dynamicFSM.c</FilePath>
             </File>
             <File>
-              <FileName>FSM.h</FileName>
+              <FileName>dynamicFSM.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Libraries\FSM.h</FilePath>
+              <FilePath>.\Libraries\dynamicFSM.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,4 +1,4 @@
-#include "FSM.h"
+#include "dynamicFSM.h"
 
 void Func(void) { __nop(); }
 
@@ -8,7 +8,7 @@ const StateInfo s3 = {Func};
 
 const StateInfo *currentStateInfo = &s1;
 
-const TransitionInfo transitions[] =
+struct TransitionInfo transitions[] =
 {
 	{&s1, 0, &s2},
 	{&s2, 0, &s3},
@@ -18,10 +18,20 @@ const TransitionInfo transitions[] =
 	{&s1, 1, &s3}
 };
 
-const int transitionsCount = sizeof transitions / sizeof *transitions;
+void InitializeFSM(void)
+{
+	int transitionsCount = sizeof transitions / sizeof *transitions;
+	
+	for(int i = 0; i < transitionsCount; i++)
+	{
+		FSM_AddTransition(&transitions[i]);
+	}
+}
 
 int main(void)
 {	
+	InitializeFSM();
+	
 	while(1)
 	{
 		FSM_HandleCurrent();
