@@ -1,5 +1,5 @@
-#ifndef FSM_H
-#define FSM_H
+#ifndef OOPFSM_H
+#define OOPFSM_H
 
 #define InputSignal char
 	

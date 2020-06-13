@@ -1,4 +1,4 @@
-#include "FSM.h"
+#include "OOPFSM.h"
 
 AbstractState::AbstractState(const TransitionInfo trans[], const int count) : transitions(trans), transitionsCount(count) {}
 

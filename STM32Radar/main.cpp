@@ -3,8 +3,8 @@ extern "C" {
 #include "UART.h"
 #include "motorsL298N.h"
 }
-#include "FSM.h"
-#include "implementationFSM.h"
+#include "OOPFSM.h"
+#include "implOOPFSM.h"
 
 int main(void)
 {

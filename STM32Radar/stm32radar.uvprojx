@@ -522,29 +522,29 @@
               <FilePath>.\Libraries\HCSR04.h</FilePath>
             </File>
             <File>
-              <FileName>FSM.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\FSM.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>FSM.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\FSM.h</FilePath>
-            </File>
-            <File>
-              <FileName>implementationFSM.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\implementationFSM.h</FilePath>
-            </File>
-            <File>
-              <FileName>implementationFSM.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\implementationFSM.cpp</FilePath>
-            </File>
-            <File>
               <FileName>main.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\main.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>implOOPFSM.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Libraries\implOOPFSM.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>implOOPFSM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Libraries\implOOPFSM.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPFSM.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Libraries\OOPFSM.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OOPFSM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Libraries\OOPFSM.h</FilePath>
             </File>
           </Files>
         </Group>

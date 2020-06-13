@@ -1,6 +1,6 @@
-#ifndef IMPLEMENTATIONFSM_H
-#define IMPLEMENTATIONFSM_H
-#include "FSM.h"
+#ifndef IMPLOOPFSM_H
+#define IMPLOOPFSM_H
+#include "OOPFSM.h"
 
 class MovingForwardState : public AbstractState
 {
