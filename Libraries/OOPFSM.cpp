@@ -8,7 +8,9 @@ void AbstractState::MakeTransition(InputSignal signal) const
 	{
 		if(transitions[i].input == signal)
 		{
+			currentState->HandleExit();
 			currentState = transitions[i].next;
+			currentState->HandleEntry();
 			return;
 		}
 	}
