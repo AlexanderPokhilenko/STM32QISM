@@ -1,6 +1,6 @@
-#include "OOPFSM.h"
+#include "oopfsm.h"
 
-AbstractState::AbstractState(const TransitionInfo trans[], const int count) : transitions(trans), transitionsCount(count) {}
+AbstractState::AbstractState(const TransitionInfo trans[], unsigned int count) : transitions(trans), transitionsCount(count) {}
 
 void AbstractState::MakeTransition(InputSignal signal) const
 {

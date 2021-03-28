@@ -49,7 +49,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>stm32radar</OutputName>
+          <OutputName>stm32cleaner</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -457,14 +457,34 @@
               <FilePath>.\main.cpp</FilePath>
             </File>
             <File>
-              <FileName>OOPFSM.cpp</FileName>
+              <FileName>oopfsm.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Libraries\OOPFSM.cpp</FilePath>
+              <FilePath>.\Libraries\oopfsm.cpp</FilePath>
             </File>
             <File>
-              <FileName>OOPFSM.h</FileName>
+              <FileName>oopfsm.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Libraries\OOPFSM.h</FilePath>
+              <FilePath>.\Libraries\oopfsm.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32fsm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Libraries\stm32fsm.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32fsm.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Libraries\stm32fsm.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>stm32extensions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Libraries\stm32extensions.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32extensions.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Libraries\stm32extensions.cpp</FilePath>
             </File>
           </Files>
         </Group>

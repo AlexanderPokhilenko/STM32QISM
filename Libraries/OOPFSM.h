@@ -14,13 +14,13 @@ typedef struct
 class AbstractState {
 	private:
 		const TransitionInfo *const transitions;
-		const int transitionsCount;
-		virtual void HandleEntry(void) const = 0;
-		virtual void HandleExit(void) const = 0;
+		const unsigned int transitionsCount;
 	public:
+		virtual void HandleEntry(void) const = 0;
 		virtual void HandleDo(void) const = 0;
+		virtual void HandleExit(void) const = 0;
 		void MakeTransition(InputSignal signal) const;
-		explicit AbstractState(const TransitionInfo transitions[], const int count);
+		explicit AbstractState(const TransitionInfo transitions[], unsigned int count);
     ~AbstractState();
 };
 
