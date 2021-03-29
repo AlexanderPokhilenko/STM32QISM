@@ -10,7 +10,6 @@ ToggleState::ToggleState(uint32_t GPIOsSize, const GPIOs inUse[], const uint16_t
 	AssertParams(usedGPIOs, outputs, GPIOsCount, outputsMode, speed);
 }
 
-
 ToggleState::ToggleState(uint32_t GPIOsSize, const GPIO_TypeDef *GPIOxInUse[], const uint16_t outputsArr[], GPIOMode_TypeDef GPIOMode, GPIOSpeed_TypeDef GPIOSpeed,
 	const TransitionInfo trans[], uint32_t count)
 		: AbstractState(trans, count), outputs(outputsArr), outputsMode(GPIOMode), speed(GPIOSpeed), usedGPIOs(CreateEnumsArrFromGPIOs(GPIOxInUse, GPIOsSize)), GPIOsCount(GPIOsSize)
