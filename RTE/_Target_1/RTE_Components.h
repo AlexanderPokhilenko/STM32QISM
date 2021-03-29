@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'stm32cleaner' 
+ * Project: 'stm32qism' 
  * Target:  'Target 1' 
  */
 
