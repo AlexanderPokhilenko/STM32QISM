@@ -2,28 +2,33 @@
 #define OOPFSM_H
 
 #define InputSignal char
-	
+
 class AbstractState;
 
-typedef struct
+typedef struct TransitionInfo
 {
 	const InputSignal input;
-	const AbstractState *const next;
+	AbstractState *const next;
+	struct TransitionInfo *nextLink;
+	TransitionInfo(InputSignal inputSignal, AbstractState *nextState, struct TransitionInfo *nextTransition = 0);
 } TransitionInfo;
 
 class AbstractState {
 	private:
-		const TransitionInfo *const transitions;
-		const unsigned int transitionsCount;
+		TransitionInfo *firstTransition;
 	public:
+		void PushTransition(InputSignal inputSignal, AbstractState *nextState);
+		void PushTransition(TransitionInfo *newTransition);
+		void MergeTransitions(TransitionInfo *transitionsList);
+		void PopTransition(void);
 		virtual void HandleEntry(void) const = 0;
 		virtual void HandleDo(void) const = 0;
 		virtual void HandleExit(void) const = 0;
 		void MakeTransition(InputSignal signal) const;
-		explicit AbstractState(const TransitionInfo transitions[], unsigned int count);
+		explicit AbstractState(TransitionInfo *firstTransition = 0);
     ~AbstractState();
 };
 
-extern const AbstractState *currentState;
+extern AbstractState *currentState;
 
 #endif

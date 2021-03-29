@@ -20,13 +20,13 @@ class ToggleState : public AbstractState
 	public:
 		virtual void HandleDo(void) const;
 		explicit ToggleState(uint32_t GPIOsCount, const GPIOs inUse[], const uint16_t outputsArr[], GPIOMode_TypeDef mode, GPIOSpeed_TypeDef speed,
-			const TransitionInfo trans[], uint32_t transitionsCount);
+			TransitionInfo *firstTransition = 0);
 		explicit ToggleState(uint32_t GPIOsCount, const GPIO_TypeDef *GPIOxInUse[], const uint16_t outputsArr[], GPIOMode_TypeDef mode, GPIOSpeed_TypeDef speed,
-			const TransitionInfo trans[], uint32_t transitionsCount);
+			TransitionInfo *firstTransition = 0);
 		explicit ToggleState(GPIOs GPIO, uint16_t output, GPIOMode_TypeDef mode, GPIOSpeed_TypeDef speed,
-			const TransitionInfo trans[], uint32_t transitionsCount);
+			TransitionInfo *firstTransition = 0);
 		explicit ToggleState(const GPIO_TypeDef *GPIOx, uint16_t output, GPIOMode_TypeDef mode, GPIOSpeed_TypeDef speed,
-			const TransitionInfo trans[], uint32_t transitionsCount);
+			TransitionInfo *firstTransition = 0);
 		~ToggleState();
 };
 
@@ -44,16 +44,16 @@ class SignalToggleState : public ToggleState
 		virtual void HandleDo(void) const;
 		explicit SignalToggleState(uint32_t GPIOsCount, const GPIOs inUse[], const uint16_t outputsArr[], GPIOMode_TypeDef outMode, GPIOSpeed_TypeDef outSpeed,
 			const uint16_t inputsArr[], GPIOMode_TypeDef inMode, bool switchOnHigh, //const InputSignal signalsArr[],
-			const TransitionInfo trans[], uint32_t transitionsCount);
+			TransitionInfo *firstTransition = 0);
 		explicit SignalToggleState(uint32_t GPIOsCount, const GPIO_TypeDef *GPIOxInUse[], const uint16_t outputsArr[], GPIOMode_TypeDef outMode, GPIOSpeed_TypeDef outSpeed,
 			const uint16_t inputsArr[], GPIOMode_TypeDef inMode, bool switchOnHigh, //const InputSignal signalsArr[],
-			const TransitionInfo trans[], uint32_t transitionsCount);
+			TransitionInfo *firstTransition = 0);
 		explicit SignalToggleState(GPIOs GPIO, uint16_t output, GPIOMode_TypeDef outMode, GPIOSpeed_TypeDef outSpeed,
 			uint16_t input, GPIOMode_TypeDef inMode, bool switchOnHigh, //InputSignal signal,
-			const TransitionInfo trans[], uint32_t transitionsCount);
+			TransitionInfo *firstTransition = 0);
 		explicit SignalToggleState(const GPIO_TypeDef *GPIOx, uint16_t output, GPIOMode_TypeDef outMode, GPIOSpeed_TypeDef outSpeed,
 			uint16_t input, GPIOMode_TypeDef inMode, bool switchOnHigh, //InputSignal signal,
-			const TransitionInfo trans[], uint32_t transitionsCount);
+			TransitionInfo *firstTransition = 0);
 		~SignalToggleState();
 };
 

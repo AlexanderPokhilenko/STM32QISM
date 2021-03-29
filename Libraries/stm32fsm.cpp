@@ -4,29 +4,29 @@
 #include "stm32f10x_conf.h"
 
 ToggleState::ToggleState(uint32_t GPIOsSize, const GPIOs inUse[], const uint16_t outputsArr[], GPIOMode_TypeDef GPIOMode, GPIOSpeed_TypeDef GPIOSpeed,
-	const TransitionInfo trans[], uint32_t count)
-		: AbstractState(trans, count), outputs(outputsArr), outputsMode(GPIOMode), speed(GPIOSpeed), usedGPIOs(inUse), GPIOsCount(GPIOsSize)
+	TransitionInfo *firstTransition)
+		: AbstractState(firstTransition), outputs(outputsArr), outputsMode(GPIOMode), speed(GPIOSpeed), usedGPIOs(inUse), GPIOsCount(GPIOsSize)
 {
 	AssertParams(usedGPIOs, outputs, GPIOsCount, outputsMode, speed);
 }
 
 ToggleState::ToggleState(uint32_t GPIOsSize, const GPIO_TypeDef *GPIOxInUse[], const uint16_t outputsArr[], GPIOMode_TypeDef GPIOMode, GPIOSpeed_TypeDef GPIOSpeed,
-	const TransitionInfo trans[], uint32_t count)
-		: AbstractState(trans, count), outputs(outputsArr), outputsMode(GPIOMode), speed(GPIOSpeed), usedGPIOs(CreateEnumsArrFromGPIOs(GPIOxInUse, GPIOsSize)), GPIOsCount(GPIOsSize)
+	TransitionInfo *firstTransition)
+		: AbstractState(firstTransition), outputs(outputsArr), outputsMode(GPIOMode), speed(GPIOSpeed), usedGPIOs(CreateEnumsArrFromGPIOs(GPIOxInUse, GPIOsSize)), GPIOsCount(GPIOsSize)
 {
   AssertParams(usedGPIOs, outputs, GPIOsCount, outputsMode, speed);
 }
 
 ToggleState::ToggleState(GPIOs GPIO, uint16_t output, GPIOMode_TypeDef GPIOMode, GPIOSpeed_TypeDef GPIOSpeed,
-	const TransitionInfo trans[], uint32_t count)
-		: AbstractState(trans, count), outputs(CreateSingleElementArray(output)), outputsMode(GPIOMode), speed(GPIOSpeed), usedGPIOs(CreateSingleElementArray(GPIO)), GPIOsCount(1)
+	TransitionInfo *firstTransition)
+		: AbstractState(firstTransition), outputs(CreateSingleElementArray(output)), outputsMode(GPIOMode), speed(GPIOSpeed), usedGPIOs(CreateSingleElementArray(GPIO)), GPIOsCount(1)
 {
 	AssertParams(usedGPIOs, outputs, GPIOsCount, outputsMode, speed);
 }
 
 ToggleState::ToggleState(const GPIO_TypeDef *GPIO, uint16_t output, GPIOMode_TypeDef GPIOMode, GPIOSpeed_TypeDef GPIOSpeed,
-	const TransitionInfo trans[], uint32_t count)
-		: AbstractState(trans, count), outputs(CreateSingleElementArray(output)), outputsMode(GPIOMode), speed(GPIOSpeed), usedGPIOs(CreateSingleElementArray(GetEnumFromGPIO(GPIO))), GPIOsCount(1)
+	TransitionInfo *firstTransition)
+		: AbstractState(firstTransition), outputs(CreateSingleElementArray(output)), outputsMode(GPIOMode), speed(GPIOSpeed), usedGPIOs(CreateSingleElementArray(GetEnumFromGPIO(GPIO))), GPIOsCount(1)
 {
 	AssertParams(usedGPIOs, outputs, GPIOsCount, outputsMode, speed);
 }
@@ -69,8 +69,8 @@ ToggleState::~ToggleState() {delete[] usedGPIOs; delete[] outputs;}
 // SignalToggleState:
 SignalToggleState::SignalToggleState(uint32_t GPIOsCount, const GPIOs inUse[], const uint16_t outputsArr[], GPIOMode_TypeDef outMode, GPIOSpeed_TypeDef outSpeed,
 	const uint16_t inputsArr[], GPIOMode_TypeDef inMode, bool switchOnHigh, //const InputSignal signalsArr[],
-	const TransitionInfo trans[], uint32_t transitionsCount)
-		: ToggleState(GPIOsCount, inUse, outputsArr, outMode, outSpeed, trans, transitionsCount), inputs(inputsArr), inputsMode(inMode), onHigh(switchOnHigh)//, signals(signalsArr)
+	TransitionInfo *firstTransition)
+		: ToggleState(GPIOsCount, inUse, outputsArr, outMode, outSpeed, firstTransition), inputs(inputsArr), inputsMode(inMode), onHigh(switchOnHigh)//, signals(signalsArr)
 {
 	assert_param(IS_GPIO_MODE(inputsMode));
 	for (unsigned int i = 0; i < GPIOsCount; i++) assert_param(IS_GPIO_PIN(inputs[i]));
@@ -78,8 +78,8 @@ SignalToggleState::SignalToggleState(uint32_t GPIOsCount, const GPIOs inUse[], c
 
 SignalToggleState::SignalToggleState(uint32_t GPIOsCount, const GPIO_TypeDef *GPIOxInUse[], const uint16_t outputsArr[], GPIOMode_TypeDef outMode, GPIOSpeed_TypeDef outSpeed,
 	const uint16_t inputsArr[], GPIOMode_TypeDef inMode, bool switchOnHigh, //const InputSignal signalsArr[],
-	const TransitionInfo trans[], uint32_t transitionsCount)
-		: ToggleState(GPIOsCount, GPIOxInUse, outputsArr, outMode, outSpeed, trans, transitionsCount), inputs(inputsArr), inputsMode(inMode), onHigh(switchOnHigh)//, signals(signalsArr)
+	TransitionInfo *firstTransition)
+		: ToggleState(GPIOsCount, GPIOxInUse, outputsArr, outMode, outSpeed, firstTransition), inputs(inputsArr), inputsMode(inMode), onHigh(switchOnHigh)//, signals(signalsArr)
 {
 	assert_param(IS_GPIO_MODE(inputsMode));
 	for (unsigned int i = 0; i < GPIOsCount; i++) assert_param(IS_GPIO_PIN(inputs[i]));
@@ -87,8 +87,8 @@ SignalToggleState::SignalToggleState(uint32_t GPIOsCount, const GPIO_TypeDef *GP
 
 SignalToggleState::SignalToggleState(GPIOs GPIO, uint16_t output, GPIOMode_TypeDef outMode, GPIOSpeed_TypeDef outSpeed,
 	uint16_t input, GPIOMode_TypeDef inMode, bool switchOnHigh, //InputSignal signal,
-	const TransitionInfo trans[], uint32_t transitionsCount)
-		: ToggleState(GPIO, output, outMode, outSpeed, trans, transitionsCount), inputs(CreateSingleElementArray(input)), inputsMode(inMode), onHigh(switchOnHigh)//, signals(CreateSingleElementArray(signal))
+	TransitionInfo *firstTransition)
+		: ToggleState(GPIO, output, outMode, outSpeed, firstTransition), inputs(CreateSingleElementArray(input)), inputsMode(inMode), onHigh(switchOnHigh)//, signals(CreateSingleElementArray(signal))
 {
 	assert_param(IS_GPIO_MODE(inputsMode));
 	assert_param(IS_GPIO_PIN(input));
@@ -96,8 +96,8 @@ SignalToggleState::SignalToggleState(GPIOs GPIO, uint16_t output, GPIOMode_TypeD
 
 SignalToggleState::SignalToggleState(const GPIO_TypeDef *GPIOx, uint16_t output, GPIOMode_TypeDef outMode, GPIOSpeed_TypeDef outSpeed,
 	uint16_t input, GPIOMode_TypeDef inMode, bool switchOnHigh, //InputSignal signal,
-	const TransitionInfo trans[], uint32_t transitionsCount)
-		: ToggleState(GPIOx, output, outMode, outSpeed, trans, transitionsCount), inputs(CreateSingleElementArray(input)), inputsMode(inMode), onHigh(switchOnHigh)//, signals(CreateSingleElementArray(signal))
+	TransitionInfo *firstTransition)
+		: ToggleState(GPIOx, output, outMode, outSpeed, firstTransition), inputs(CreateSingleElementArray(input)), inputsMode(inMode), onHigh(switchOnHigh)//, signals(CreateSingleElementArray(signal))
 {
 	assert_param(IS_GPIO_MODE(inputsMode));
 	assert_param(IS_GPIO_PIN(input));
